@@ -8,6 +8,14 @@ import { User } from "./User";
 export class Reminder extends BaseModel {
   @Field()
   @Column()
+  startDate: String;
+
+  @Field()
+  @Column()
+  endDate: string;
+
+  @Field()
+  @Column()
   details: string;
 
   @Field()

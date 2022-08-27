@@ -4,7 +4,7 @@ import { Reminder } from "./../entities/Reminder";
 @InputType()
 export class CreateReminderInput {
   @Field()
-  startDate: String;
+  startDate: string;
 
   @Field()
   endDate: string;
@@ -28,10 +28,22 @@ export class CreateReminderInput {
   details: string;
 }
 
+export class ConvertedReminderItem {
+  date: Date;
+  reminder: Reminder;
+}
+
+// export class ConvertedReminder {
+//   convertedReminder: ConvertedReminderItem[];
+// }
+
 @ObjectType()
 export class ReminderResponse {
   @Field(() => Reminder, { nullable: true })
   reminder?: Reminder | undefined | null;
+
+  // @Field(Array, { nullable: true })
+  // convertedReminders?: any | null;
 
   @Field(() => [Reminder], { nullable: true })
   reminders?: Reminder[] | undefined | null;
