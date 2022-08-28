@@ -54,7 +54,8 @@
     "typeorm": "^0.3.7",
     "typeorm-seeding": "^1.6.1",
     "uuid": "^8.3.2",
-    "zod": "^3.18.0"
+    "zod": "^3.18.0",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
     "@types/connect-redis": "^0.0.18",
