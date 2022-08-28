@@ -24,6 +24,9 @@
     "clear:dev": "yarn build && npx typeorm-ts-node-esm schema:drop -d src/constants/data-source.ts && npx typeorm-ts-node-esm migration:run -d src/constants/data-source.ts && ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
     "test": "jest  --runInBand  --testTimeout=10000 --detectOpenHandles"
   },
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
