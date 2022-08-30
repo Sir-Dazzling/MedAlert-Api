@@ -26,7 +26,7 @@ export class AuthService {
     const passwordValid = await argon.verify(user.password, loginDTO.password);
 
     if (!passwordValid) {
-      errors.push({ field: "email", message: "Invalid Credentials" });
+      errors.push({ field: "username", message: "Invalid Credentials" });
       return { errors };
     }
     return { errors, user };
