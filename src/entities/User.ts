@@ -7,28 +7,8 @@ import { BaseModel } from "./BaseModel";
 @Entity()
 export class User extends BaseModel {
   @Field()
-  @Column()
-  firstName: string;
-
-  @Field()
-  @Column()
-  lastName: string;
-
-  @Field()
-  @Column({ unique: true })
-  email: string;
-
-  @Field()
   @Column({ unique: true })
   username: string;
-
-  @Field()
-  @Column({ unique: true })
-  phoneNumber: string;
-
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  profilePicture: string;
 
   @Column()
   password: string;

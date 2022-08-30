@@ -12,7 +12,7 @@ import { RequestAndResponseType } from "./../types/MyContext";
 export class AuthService {
   // Login a user
   async login(loginDTO: LoginInput): Promise<AccountResponse> {
-    const user = await User.findOneBy({ email: loginDTO.email });
+    const user = await User.findOneBy({ username: loginDTO.username });
     const errors: FieldError[] = [];
 
     if (!user) {
@@ -64,10 +64,6 @@ export class AuthService {
           .insert()
           .into(User)
           .values({
-            firstName: registerAccountDTO.firstName,
-            lastName: registerAccountDTO.lastName,
-            email: registerAccountDTO.email,
-            phoneNumber: registerAccountDTO.phoneNumber,
             password: hashedPassword,
             username: registerAccountDTO.username,
             deviceId: registerAccountDTO.deviceId,
@@ -79,20 +75,6 @@ export class AuthService {
     } catch (error) {
       // Checking for unique_fields error
       if (error.code === "23505") {
-        if (error.detail.includes("email")) {
-          errors.push({
-            field: "email",
-            message: "Email already taken",
-          });
-        }
-
-        if (error.detail.includes("phoneNumber")) {
-          errors.push({
-            field: "phoneNumber",
-            message: "Phone number already in use",
-          });
-        }
-
         if (error.detail.includes("username")) {
           errors.push({
             field: "username",

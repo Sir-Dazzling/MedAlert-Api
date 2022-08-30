@@ -1,6 +1,6 @@
 module.exports = {
   type: "postgres",
-  url: process.env.STAGING_DATABASE_URL,
+  url: process.env.DATABASE_URL,
   entities: ["dist/src/entities/*.js"],
   migrations: ["dist/src/migrations/*.js"],
   factories: ["dist/src/factories/*.js"],
